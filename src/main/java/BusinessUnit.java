@@ -74,7 +74,7 @@ public class BusinessUnit {
 
   public static Map<Integer, Object[]> getTeamMap() {
     Map<Integer, Object[]> teamMap = new HashMap<>();
-    teamMap.put(0, List.of("id", "name").toArray());
+    teamMap.put(0, List.of("id", "teamName").toArray());
     int index = 1;
     index = addTeams(teamMap, index, eu);
     index = addTeams(teamMap, index, aus);

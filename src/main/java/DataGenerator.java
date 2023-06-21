@@ -14,7 +14,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class DataGenerator {
 
   private static final Logger LOGGER = Logger.getLogger(DataGenerator.class.getName());
-  private static final int EMPLOYEE_COUNT = 1000; //S:1000, M: 5000, L: 10000
+  private static final int EMPLOYEE_COUNT = 10000; //S:1000, M: 5000, L: 10000
   private static final String OUTPUT_FOLDER =
       "D:/Study/Master/Thesis/Data/Final2/" + EMPLOYEE_COUNT + "/";
 
