@@ -31,21 +31,21 @@ public class BusinessUnit {
         Arrays.asList("Aimed", "Netician", "AISpace", "Light Speed", "Portfolio", "Elimica"));
   }
 
-  public static Map<Integer, Object[]> getEmployeeProjectRelationship(
-      Map<Integer, Object[]> employees) {
-    Map<Integer, Object[]> relationships = new HashMap<>();
-    relationships.put(0, List.of("employeeId", "teamName", "buName", "startDate").toArray());
-    int count = 1;
-    for (var employee : employees.entrySet()) {
-      List<String> generatedBU = BusinessUnit.getRandomBusinessUnits();
-      relationships.put(count,
-          List.of(employee.getKey(), generatedBU.get(1), generatedBU.get(0),
-              LocalDate.now().getYear() + "-" + LocalDate.now().getMonthValue() + "-"
-                  + LocalDate.now().getDayOfMonth()).toArray());
-      count++;
-    }
-    return relationships;
-  }
+//  public static Map<Integer, Object[]> getEmployeeProjectRelationship(
+//      Map<Integer, Object[]> employees) {
+//    Map<Integer, Object[]> relationships = new HashMap<>();
+//    relationships.put(0, List.of("employeeId", "teamName", "buName", "startDate").toArray());
+//    int count = 1;
+//    for (var employee : employees.entrySet()) {
+//      List<String> generatedBU = BusinessUnit.getRandomBusinessUnits();
+//      relationships.put(count,
+//          List.of(employee.getKey(), generatedBU.get(1), generatedBU.get(0),
+//              LocalDate.now().getYear() + "-" + LocalDate.now().getMonthValue() + "-"
+//                  + LocalDate.now().getDayOfMonth()).toArray());
+//      count++;
+//    }
+//    return relationships;
+//  }
 
   public static List<String> getRandomBusinessUnits() {
     String randomBU = "";
@@ -139,6 +139,4 @@ public class BusinessUnit {
     }
     return buStructure;
   }
-
-
 }

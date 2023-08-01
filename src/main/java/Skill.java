@@ -153,29 +153,51 @@ public class Skill {
     return count;
   }
 
-  private static int getSkillRatingForProject(String projectName,
-      Map<Integer, Object[]> projectSkillRatings, int count) {
+//  private static int getSkillRatingForProject(String projectName,
+//      Map<Integer, Object[]> projectSkillRatings, int count) {
+//    int stackIndex = new Random().nextInt(stackGroups.size());
+//    for (String skill : stackGroups.get(stackIndex)) {
+//      projectSkillRatings.put(count,
+//          List.of(projectName, skill, new Random().nextInt(1, 5)).toArray());
+//      count++;
+//    }
+//    return count;
+//  }
+
+  private static int getSkillRatingForJob(Integer jobId, Map<Integer, Object[]> jobSkillRatings, int count) {
     int stackIndex = new Random().nextInt(stackGroups.size());
     for (String skill : stackGroups.get(stackIndex)) {
-      projectSkillRatings.put(count,
-          List.of(projectName, skill, new Random().nextInt(1, 5)).toArray());
+      jobSkillRatings.put(count,
+          List.of(jobId, skill, new Random().nextInt(1, 5)).toArray());
       count++;
     }
     return count;
   }
 
-  public static Map<Integer, Object[]> getSkillRatingForProjects() {
-    Map<Integer, Object[]> projectSkillRatings = new HashMap<>();
-    projectSkillRatings.put(0, List.of("projectName", "skillName", "rating").toArray());
-    List<String> allProjects = Stream.of(BusinessUnit.eu, BusinessUnit.aus, BusinessUnit.apac,
-        BusinessUnit.us).flatMap(
-        Collection::stream).toList();
+//  public static Map<Integer, Object[]> getSkillRatingForProjects() {
+//    Map<Integer, Object[]> projectSkillRatings = new HashMap<>();
+//    projectSkillRatings.put(0, List.of("projectName", "skillName", "rating").toArray());
+//    List<String> allProjects = Stream.of(BusinessUnit.eu, BusinessUnit.aus, BusinessUnit.apac,
+//        BusinessUnit.us).flatMap(
+//        Collection::stream).toList();
+//    int count = 1;
+//    for (String project : allProjects) {
+//      count = getSkillRatingForProject(project, projectSkillRatings, count);
+//    }
+//
+//    return projectSkillRatings;
+//  }
+
+  public static Map<Integer, Object[]> getSkillRatingForJobs() {
+    Map<Integer, Object[]> jobSkillRatings = new HashMap<>();
+    jobSkillRatings.put(0, List.of("jobId", "skillName", "rating").toArray());
+    Map<Integer, Object[]> jobs = Job.getJobs();
     int count = 1;
-    for (String project : allProjects) {
-      count = getSkillRatingForProject(project, projectSkillRatings, count);
+    for (var entry : jobs.entrySet()) {
+      count = getSkillRatingForJob(entry.getKey(), jobSkillRatings, count);
     }
 
-    return projectSkillRatings;
+    return jobSkillRatings;
   }
 
   public static Map<Integer, Object[]> getSkillRoleRelationship() {

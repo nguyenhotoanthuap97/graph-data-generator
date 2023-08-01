@@ -128,10 +128,10 @@ public class Employee {
     String sibn = String.format("%05d", new Random().nextInt(1, 99999)) + String.format("%05d",
         new Random().nextInt(1, 99999));
     int titleIndex = new Random().nextInt(100);
-    String title = titleIndex < 5 ? "Solution Architect"
-        : titleIndex < 20 ? "Senior Software Engineer" : titleIndex < 50 ? "Software Engineer"
-            : titleIndex < 70 ? "Quality Assurance" : titleIndex < 80 ? "Senior Quality Assurance"
-                : titleIndex < 88 ? "Senior Business Analyst" : "Business Analyst";
+    String title = titleIndex < 5 ? SA
+        : titleIndex < 20 ? SSE : titleIndex < 50 ? SE
+            : titleIndex < 70 ? QA : titleIndex < 80 ? SQA
+                : titleIndex < 88 ? SBA : BA;
 
     List<Object> employee = Arrays.asList(employeeId, name, dob, sex, address, pit, id, sibn,
         title);

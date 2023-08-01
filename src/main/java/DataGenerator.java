@@ -14,9 +14,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class DataGenerator {
 
   private static final Logger LOGGER = Logger.getLogger(DataGenerator.class.getName());
-  private static final int EMPLOYEE_COUNT = 10000; //S:1000, M: 5000, L: 10000
+  private static final int EMPLOYEE_COUNT = 1000; //S:1000, M: 5000, L: 10000
   private static final String OUTPUT_FOLDER =
-      "D:/Study/Master/Thesis/Data/Final2/" + EMPLOYEE_COUNT + "/";
+      "D:/Study/Master/Thesis/Data/Final3/" + EMPLOYEE_COUNT + "/";
 
   public static void main(String[] args) {
     Map<Integer, Object[]> businessUnits = BusinessUnit.getBUMap();
@@ -35,6 +35,9 @@ public class DataGenerator {
     writeData("Data", roles,
         OUTPUT_FOLDER + "Roles.xlsx");
 
+    Map<Integer, Object[]> jobs = Job.getJobs();
+    writeData("Data", jobs, OUTPUT_FOLDER + "Jobs.xlsx");
+
     Map<Integer, Object[]> isA = Role.getRoleEmployeeRelationship(employees);
     writeData("Data", isA,
         OUTPUT_FOLDER + "IS_A.xlsx");
@@ -43,9 +46,13 @@ public class DataGenerator {
     writeData("Data", reportsTo,
         OUTPUT_FOLDER + "REPORTS_TO.xlsx");
 
-    Map<Integer, Object[]> isMemberOf = BusinessUnit.getEmployeeProjectRelationship(employees);
-    writeData("Data", isMemberOf,
-        OUTPUT_FOLDER + "IS_MEMBER_OF.xlsx");
+//    Map<Integer, Object[]> isMemberOf = BusinessUnit.getEmployeeProjectRelationship(employees);
+//    writeData("Data", isMemberOf,
+//        OUTPUT_FOLDER + "IS_MEMBER_OF.xlsx");
+
+    Map<Integer, Object[]> isOf = Job.getTeamJobRelationship(employees);
+    writeData("Data", isOf,
+        OUTPUT_FOLDER + "IS_OF.xlsx");
 
     Map<Integer, Object[]> skills = Skill.getSkillMap();
     writeData("Data", skills,
@@ -55,7 +62,7 @@ public class DataGenerator {
     writeData("Data", isUsedBy,
         OUTPUT_FOLDER + "IS_USED_BY.xlsx");
 
-    Map<Integer, Object[]> projectRating = Skill.getSkillRatingForProjects();
+    Map<Integer, Object[]> projectRating = Skill.getSkillRatingForJobs();
     writeData("Data", projectRating, OUTPUT_FOLDER + "REQUIRES.xlsx");
 
     Map<Integer, Object[]> employeeRating = Skill.getEmployeeSkillRelationships(employees);
