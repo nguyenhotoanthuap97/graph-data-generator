@@ -1,11 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.stream.Stream;
 
 public class Skill {
 
@@ -29,28 +27,226 @@ public class Skill {
           "AJAX", "Bash", "ASP.NET Core", "Microsoft Visio", "Postman", "Confluence", "Mockup",
           "Oracle Business Intelligence", "Resource planning"));
 
-  private static final List<String> devSkills = List.of("Java", "Spring Boot", "C++", "C#", ".Net",
-      "React.js", "Flutter", "Apache Tomcat", "Backend", "Frontend", "DevOps", "Microsoft Azure",
-      "Amazon Web Service", "Google Cloud Provider", "React Native", "Python", "Golang", "Xamarin",
-      "Android", "iOS", "XCode", "VueJS", "ExpressJS", "JavaScript", "HTML", "CSS", "Apache Kafka",
-      "Docker", "Kubernetes", "SQL", "NoSQL", "Git", "SVN", "JDBC", "Hibernate", "Groovy", "Scala",
-      "TypeScript", "Ruby", "Kotlin", "Angular", "ASP.NET", "Django", "Laravel", "GraphQL",
-      "Microservices", "Bootstrap", "Ember", "Swift", "Redux", "JavaFX", "Microsoft SQL Server",
-      "PostgreSQL", "MySQL", "MongoDB", "Oracle", "Cassandra", "CouchDB", "Redis", "ElasticSearch",
-      "DBA", "Neo4j", "Heroku", "Maven", "Gradle", "SonarQube", "CircleCI", "Ansible", "Jenkins",
-      "JUnit", "ETL", "Oracle Warehouse", "Pentaho", "Hadoop", "Spark", "AI", "ML", "Batch script",
-      "AWS Redshift", "Backbone.js", "COBOL", "jQuery", "Linux", "Node.js", "Objective C", "PHP",
-      "Perl", "R", "Ruby on Rails", "Shell script", "Spring Framework", "AJAX", "Bash",
-      "ASP.NET Core", "Postman");
+  private static final List<String> devSkills = List.of("Java",
+      "Spring Boot",
+      "C++",
+      "C#",
+      ".Net",
+      "React.js",
+      "Flutter",
+      "Apache Tomcat",
+      "Backend",
+      "Frontend",
+      "DevOps",
+      "Microsoft Azure",
+      "Amazon Web Service",
+      "Google Cloud Provider",
+      "React Native",
+      "Scrum",
+      "Python",
+      "Golang",
+      "Xamarin",
+      "Android",
+      "iOS",
+      "XCode",
+      "VueJS",
+      "ExpressJS",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Apache Kafka",
+      "Docker",
+      "Kubernetes",
+      "SQL",
+      "NoSQL",
+      "Git",
+      "SVN",
+      "JDBC",
+      "Hibernate",
+      "Groovy",
+      "Scala",
+      "TypeScript",
+      "Ruby",
+      "Kotlin",
+      "Angular",
+      "ASP.NET",
+      "Django",
+      "Laravel",
+      "GraphQL",
+      "Microservices",
+      "Bootstrap",
+      "Ember",
+      "Swift",
+      "Redux",
+      "JavaFX",
+      "Microsoft SQL Server",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Oracle",
+      "Cassandra",
+      "CouchDB",
+      "Redis",
+      "ElasticSearch",
+      "DBA",
+      "Neo4j",
+      "Heroku",
+      "Maven",
+      "Gradle",
+      "SonarQube",
+      "CircleCI",
+      "Ansible",
+      "Jenkins",
+      "JUnit",
+      "ETL",
+      "Oracle Warehouse",
+      "Logi Info",
+      "Pentaho",
+      "Hadoop",
+      "Spark",
+      "AI",
+      "ML",
+      "System Analytic",
+      "Batch script",
+      "Waterfall",
+      "Agile",
+      "Kanban",
+      "English",
+      "Japanese",
+      "French",
+      "Atlassian JIRA",
+      "AWS Redshift",
+      "Backbone.js",
+      "COBOL",
+      "jQuery",
+      "Linux",
+      "Node.js",
+      "Objective C",
+      "PHP",
+      "Perl",
+      "R",
+      "Ruby on Rails",
+      "Shell script",
+      "Spring Framework",
+      "AJAX",
+      "Bash",
+      "ASP.NET Core",
+      "Microsoft Visio",
+      "Postman",
+      "Confluence");
 
-  private static final List<String> qaSkills = List.of("Automation test", "Manual test",
-      "Apache JMeter", "Selenium", "Cucumber", "Serenity", "Karate");
+  private static final List<String> qaSkills = List.of("Java",
+      "C#",
+      "DevOps",
+      "Microsoft Azure",
+      "Amazon Web Service",
+      "Google Cloud Provider",
+      "Scrum",
+      "Python",
+      "Automation test",
+      "Manual test",
+      "Android",
+      "iOS",
+      "JavaScript",
+      "Apache JMeter",
+      "Apache Kafka",
+      "Docker",
+      "Kubernetes",
+      "SQL",
+      "NoSQL",
+      "Git",
+      "SVN",
+      "GraphQL",
+      "Microservices",
+      "Microsoft SQL Server",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Oracle",
+      "Cassandra",
+      "CouchDB",
+      "Redis",
+      "ElasticSearch",
+      "Neo4j",
+      "Jenkins",
+      "JUnit",
+      "Selenium",
+      "Cucumber",
+      "Serenity",
+      "ETL",
+      "QlikView",
+      "Oracle Warehouse",
+      "Logi Info",
+      "Pentaho",
+      "Hadoop",
+      "Spark",
+      "AI",
+      "ML",
+      "Batch script",
+      "Waterfall",
+      "Agile",
+      "Kanban",
+      "English",
+      "Japanese",
+      "French",
+      "Karate",
+      "Atlassian JIRA",
+      "AWS Redshift",
+      "Linux",
+      "Shell script",
+      "Bash",
+      "Postman",
+      "Confluence");
 
-  private static final List<String> baSkills = List.of("Scrum", "QlikView", "Logi Info",
-      "Business Analyst", "Wireframe Development", "System Analytic", "Product Documentation",
-      "Graphic Design", "Waterfall", "Agile", "Kanban", "Scrum master", "English", "Japanese",
-      "French", "Atlassian JIRA", "Microsoft Visio", "Confluence", "Mockup",
-      "Oracle Business Intelligence", "Resource planning");
+  private static final List<String> baSkills = List.of("Microsoft Azure",
+      "Amazon Web Service",
+      "Google Cloud Provider",
+      "Scrum",
+      "Python",
+      "Manual test",
+      "Android",
+      "iOS",
+      "Docker",
+      "Kubernetes",
+      "SQL",
+      "NoSQL",
+      "GraphQL",
+      "Microservices",
+      "Microsoft SQL Server",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Oracle",
+      "Cassandra",
+      "CouchDB",
+      "Redis",
+      "ElasticSearch",
+      "Neo4j",
+      "ETL",
+      "QlikView",
+      "Oracle Warehouse",
+      "Logi Info",
+      "AI",
+      "ML",
+      "Business Analyst",
+      "Wireframe Development",
+      "System Analytic",
+      "Product Documentation",
+      "Graphic Design",
+      "Waterfall",
+      "Agile",
+      "Kanban",
+      "Scrum master",
+      "English",
+      "Japanese",
+      "French",
+      "Atlassian JIRA",
+      "Microsoft Visio",
+      "Postman",
+      "Confluence",
+      "Mockup",
+      "Oracle Business Intelligence",
+      "Resource planning");
 
   private static final List<List<String>> stackGroups = List.of(
       List.of("Java", "Spring Framework", "Apache Tomcat", "Backend", "DevOps",
@@ -118,33 +314,10 @@ public class Skill {
 
   private static int generateSkillRatingForEmployee(String employeeId, String title,
       Map<Integer, Object[]> skillRatings, int count) {
-    Map<String, List<String>> titleExpertises = Title.getTitleExpertises();
-    List<String> sAExpertises = titleExpertises.get("SA");
-    List<String> sSEExpertises = titleExpertises.get("SSE");
-    List<String> sEExpertises = titleExpertises.get("SE");
-    List<String> qAExpertises = titleExpertises.get("QA");
-    List<String> sQAExpertises = titleExpertises.get("SQA");
-    List<String> sBAExpertises = titleExpertises.get("SBA");
-    List<String> bAExpertises = titleExpertises.get("BA");
     for (String skill : skills) {
       int rating = 0;
       int randomNumWithWeight = new Random().nextInt(4);
-      switch (title) {
-        case Employee.SA -> rating = sAExpertises.contains(skill) ? new Random().nextInt(6)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-        case Employee.SSE -> rating = sSEExpertises.contains(skill) ? new Random().nextInt(4)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-        case Employee.SE -> rating = sEExpertises.contains(skill) ? new Random().nextInt(3)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-        case Employee.QA -> rating = qAExpertises.contains(skill) ? new Random().nextInt(3)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-        case Employee.SQA -> rating = sQAExpertises.contains(skill) ? new Random().nextInt(4)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-        case Employee.SBA -> rating = sBAExpertises.contains(skill) ? new Random().nextInt(4)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-        case Employee.BA -> rating = bAExpertises.contains(skill) ? new Random().nextInt(3)
-            : (randomNumWithWeight == 3 ? 1 : 0);
-      }
+      rating = getRating(title, skill, rating, randomNumWithWeight);
       if (rating != 0) {
         skillRatings.put(count, List.of(employeeId, skill, rating).toArray());
         count++;
@@ -164,14 +337,40 @@ public class Skill {
 //    return count;
 //  }
 
-  private static int getSkillRatingForJob(Integer jobId, Map<Integer, Object[]> jobSkillRatings, int count) {
+  private static int getSkillRatingForJob(Integer jobId, String title,
+      Map<Integer, Object[]> jobSkillRatings, int count) {
     int stackIndex = new Random().nextInt(stackGroups.size());
     for (String skill : stackGroups.get(stackIndex)) {
-      jobSkillRatings.put(count,
-          List.of(jobId, skill, new Random().nextInt(1, 5)).toArray());
-      count++;
+      int rating = 0;
+      int randomNumWithWeight = new Random().nextInt(4);
+      rating = getRating(title, skill, rating, randomNumWithWeight);
+      if (rating != 0) {
+        jobSkillRatings.put(count, List.of(jobId, skill, new Random().nextInt(1, 5)).toArray());
+        count++;
+      }
     }
     return count;
+  }
+
+  private static int getRating(String title, String skill, int rating, int randomNumWithWeight) {
+    Map<String, List<String>> titleExpertises = Title.getTitleExpertises();
+    List<String> sAExpertises = titleExpertises.get("SA");
+    List<String> sSEExpertises = titleExpertises.get("SSE");
+    List<String> sEExpertises = titleExpertises.get("SE");
+    List<String> qAExpertises = titleExpertises.get("QA");
+    List<String> sQAExpertises = titleExpertises.get("SQA");
+    List<String> sBAExpertises = titleExpertises.get("SBA");
+    List<String> bAExpertises = titleExpertises.get("BA");
+    switch (title) {
+      case Employee.SA -> rating = sAExpertises.contains(skill) ? new Random().nextInt(6) : 0;
+      case Employee.SSE -> rating = sSEExpertises.contains(skill) ? new Random().nextInt(4) : 0;
+      case Employee.SE -> rating = sEExpertises.contains(skill) ? new Random().nextInt(3) : 0;
+      case Employee.QA -> rating = qAExpertises.contains(skill) ? new Random().nextInt(3) : 0;
+      case Employee.SQA -> rating = sQAExpertises.contains(skill) ? new Random().nextInt(4) : 0;
+      case Employee.SBA -> rating = sBAExpertises.contains(skill) ? new Random().nextInt(4) : 0;
+      case Employee.BA -> rating = bAExpertises.contains(skill) ? new Random().nextInt(3) : 0;
+    }
+    return rating;
   }
 
 //  public static Map<Integer, Object[]> getSkillRatingForProjects() {
@@ -192,9 +391,12 @@ public class Skill {
     Map<Integer, Object[]> jobSkillRatings = new HashMap<>();
     jobSkillRatings.put(0, List.of("jobId", "skillName", "rating").toArray());
     Map<Integer, Object[]> jobs = Job.getJobs();
+
     int count = 1;
     for (var entry : jobs.entrySet()) {
-      count = getSkillRatingForJob(entry.getKey(), jobSkillRatings, count);
+
+      String title = entry.getValue()[1].toString();
+      count = getSkillRatingForJob(entry.getKey(), title, jobSkillRatings, count);
     }
 
     return jobSkillRatings;

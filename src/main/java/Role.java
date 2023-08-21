@@ -33,7 +33,7 @@ public class Role {
   private static String getRole(String title) {
     return switch (title) {
       case "Solution Architect", "Senior Software Engineer", "Software Engineer" -> DEVELOPER;
-      case "Quality Assurance", "Senior Quality Assurance" -> TESTER;
+      case "Quality Assurance", "Quality Assuranc", "Senior Quality Assurance", "Senior Quality Assuranc" -> TESTER;
       default -> BUSINESS_ANALYST;
     };
   }
